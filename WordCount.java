@@ -56,8 +56,7 @@ public class WordCount {
 				fileOut.flush();
 				fileOut.close();
 			}
-		}
-		
+		}		
 	} // end of main
 
 	public static HashMap<String, Integer> countWord (String fileName) {		
