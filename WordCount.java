@@ -2,8 +2,10 @@ package wordCount;
 
 import java.util.*;
 import java.io.*;
+/** The WordCount class implements word counting in text file using HashMap data structure
+*/
 
-//Comparator interface
+//Implement Comparator interface for result sorting
 class ValueComparator implements Comparator<String> {
 	HashMap<String, Integer> base;
 	ValueComparator (HashMap<String, Integer> base) {
@@ -19,12 +21,14 @@ class ValueComparator implements Comparator<String> {
 	}	
 }
 
-public class WordCount {
-	
+public class WordCount {	
 	public static void main(String[] args) {
 		WordCount wc = new WordCount();
 		wc.go();
 	}
+
+	/** Setup input and output
+	*/
 	public void go(){
 		String fileName = "big.txt";
 		HashMap<String, Integer> map = countWord(fileName);
@@ -56,6 +60,8 @@ public class WordCount {
 		}		
 	} //end of setup
 	
+	/** Sort result by alphabetical order
+	*/
 	public static TreeMap<String, Integer> sortByValue 
 		(HashMap<String, Integer> map) {
 		ValueComparator vc =  new ValueComparator(map);
@@ -64,6 +70,8 @@ public class WordCount {
 		return sortedMap;
 	}//end of sort
 	
+	/** Word counting and recording
+	*/
 	public static HashMap<String, Integer> countWord (String fileName) {		
 		BufferedReader br = null;
 		HashMap<String, Integer> map = new HashMap<>();
