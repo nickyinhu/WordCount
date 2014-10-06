@@ -21,14 +21,11 @@ class ValueComparator implements Comparator<String> {
 
 public class WordCount {
 	
-	public static TreeMap<String, Integer> sortByValue 
-		(HashMap<String, Integer> map) {
-		ValueComparator vc =  new ValueComparator(map);
-		TreeMap<String,Integer> sortedMap = new TreeMap<String,Integer>(vc);
-		sortedMap.putAll(map);
-		return sortedMap;
-	}
 	public static void main(String[] args) {
+		WordCount wc = new WordCount();
+		wc.go();
+	}
+	public void go(){
 		String fileName = "big.txt";
 		HashMap<String, Integer> map = countWord(fileName);
 		TreeMap<String, Integer> sortedMap = sortByValue(map);
@@ -57,8 +54,16 @@ public class WordCount {
 				fileOut.close();
 			}
 		}		
-	} // end of main
-
+	} //end of setup
+	
+	public static TreeMap<String, Integer> sortByValue 
+		(HashMap<String, Integer> map) {
+		ValueComparator vc =  new ValueComparator(map);
+		TreeMap<String,Integer> sortedMap = new TreeMap<String,Integer>(vc);
+		sortedMap.putAll(map);
+		return sortedMap;
+	}//end of sort
+	
 	public static HashMap<String, Integer> countWord (String fileName) {		
 		BufferedReader br = null;
 		HashMap<String, Integer> map = new HashMap<>();
